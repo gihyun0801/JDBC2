@@ -1,0 +1,86 @@
+집에서 복습 해야될 내용
+
+1. properties 객체 , fileinputstream, fileoutputstream , Scanner 으로 xml 파일 생성후 
+syso 로 value 얻어와보기 
+
+
+properties proo = new properties();
+
+FileoutputStream fis = new FileoutputStream(scanner.xml);
+
+-------------------------------------------------
+
+JDBCTEMPLATE 클래스 생성 <- 여기다간 JDBC에서 반복 사용되는 코드들을 모아둔 클래스
+
+conn = null
+conn 통로만들기
+conn닫기
+
+stmt 닫기 = prepareState 를 써도 업캐스팅으로 닫힘 
+
+conn commit
+rollback conn
+
+
+DB 연결 CONNECTION 생성 + 자동 커밋 비활성화 , JDBC 객체 자원 반환
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+
+위에는 1개의 객체엿지만
+
+3개의 객체만들어서 해보기 
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+  번호 , 제목, 내용을 입력받아
+ 번호가 일치하는 행의 제목(title), 내용(content) 수정
+
+
+수정 성공하면 수정되었습니다 표시
+수정 실패하면 일치하는 번호가 없습니다
+예외 발생시 수정중 예외가 발생햇습니다
+
+-----------------------------------------------------------------------------------------
+
+번호를 하나 입력받아
+
+번호가 일치하는 행의 내용 삭제
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+프로젝트명 : EmployeeManagement
+
+시작은 : Run : edu.kh.emp.run 패키지의 EmployeeRun
+View : edu.kh.emp.view 패키지의 EmployeeView
+Service : edu.kh.emp.model.serivce 의 EmployeeService 
+DAO : edu.kh.emp.model.dao 의 EmployeeDAO
+
+VO: edu.kh.emp.model.vo.의 Employee
+
+JDBC 템플릿 만들기
+
+edu.kh.emp.common 패키지 만들고 안에 JDBCTemplate
+edu.kh.emp.common 패키지안에 CreateXMLFile
+
+--------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE TB_TEST(    
+
+     TEST_NO NUMBER PRIMARY KEY,
+     TEST_TITLE VARCHAR2(100) NOT NULL,
+     TEST_CONTENT VARCHAR2(500) NOT NULL
+);
+
+SELECT * FROM TB_TEST;
+
+
+
+
+
+
+
+
