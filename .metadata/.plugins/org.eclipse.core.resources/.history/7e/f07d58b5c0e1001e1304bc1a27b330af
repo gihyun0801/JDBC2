@@ -1,0 +1,17 @@
+package edu.kh.jdbc.run2;
+
+import edu.kh.jdbc.model.service.TestService;
+
+public class Run2 {
+   
+	 public static void main(String[] args) {
+		
+		 //TB_TEST 테이블에 한번에 3행 삽입
+		 
+		 TestService service = new TestService();
+		 
+		 
+	}
+	 
+	 
+}

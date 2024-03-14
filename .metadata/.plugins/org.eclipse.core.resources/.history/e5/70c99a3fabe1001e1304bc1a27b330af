@@ -1,0 +1,12 @@
+package edu.kh.jdbc.model.service;
+
+import edu.kh.jdbc.model.vo.TestVO;
+
+public class TestService {
+			
+	
+	public void insert(TestVO vo) {
+		
+	}
+	
+}

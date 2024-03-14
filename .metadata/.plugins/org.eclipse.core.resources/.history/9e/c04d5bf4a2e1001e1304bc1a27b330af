@@ -1,0 +1,23 @@
+package edu.kh.jdbc.common;
+
+import java.sql.Connection;
+
+public class JDBCTemplate {
+
+	
+	   /* DB 연결 (Connection 생성) + 자동 커밋 off, JDBC 객체 자원 반환(close)
+	    * 트랜잭션 제어
+	    * 
+	    * 이러한 JDBC에서 반복 사용되는 코드를 모아둔 클래스
+	    * 
+	    * * 모든 필드, 메서드가 static * 
+	    *  -> 어디서든지 클래스명.변수명 / 클래스명.변수명 호출 가능 
+	    *  -> 별도 객체 생성 x
+	    * 
+	    * */
+	   
+	   private static Connection conn = null;
+	   
+	   public static Connection getConnection() {};
+
+}

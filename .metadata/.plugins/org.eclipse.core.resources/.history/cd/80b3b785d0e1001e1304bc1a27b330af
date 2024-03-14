@@ -1,0 +1,47 @@
+package edu.kh.emp.common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Properties;
+
+public class JDBCTemplate {
+ 
+	 private static Connection conn = null;
+	
+	 public static Connection getConnection(Connection conn) {
+		 
+		 try {
+			 
+			 if(conn == null || conn.isClosed()) {
+				 
+				 
+				 Properties proo = new Properties();
+				 
+			 }
+			 
+			 
+			 conn = DriverManager.getConnection(null)
+			 
+			 
+			 
+			 
+			 
+			 
+			
+		 }catch(Exception e) {
+			 e.printStackTrace();
+		 }
+		 
+		
+		 
+		 
+		 
+		 
+		 
+		 
+		 return conn;
+	 }
+	 
+	  
+	 
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>아아</comment>
+
+<entry key="url">
+
+     jdbc:oracle:thin:@localhost:1521:XE
+     
+
+</entry>
+
+<entry key="user">
+ 
+   kh_sgh
+
+</entry>
+
+<entry key="password">
+
+ kh1234
+
+</entry>
+
+</properties>

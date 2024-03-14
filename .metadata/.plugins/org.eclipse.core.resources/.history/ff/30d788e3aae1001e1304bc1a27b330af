@@ -1,0 +1,12 @@
+package edu.kh.jdbc.run;
+
+import edu.kh.jdbc.model.service.TestService;
+
+public class Run {
+   public static void main(String[] args) {
+ 	      TestService service = new TestService();
+ 	      
+ 	      
+ 	      
+   	}
+}

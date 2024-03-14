@@ -1,0 +1,10 @@
+package edu.kh.jdbc.common;
+
+public class LoadXmlFile {
+   public static void main(String[] args) {
+	
+	   
+	   System.out.println(driver.value);
+	   
+}
+}

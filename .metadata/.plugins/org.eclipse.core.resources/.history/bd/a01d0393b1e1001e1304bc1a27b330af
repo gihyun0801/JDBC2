@@ -1,0 +1,65 @@
+package edu.kh.jdbc.model.dao;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
+import edu.kh.jdbc.model.vo.TestVO;
+
+public class TestDao {
+ 
+	 //DAO ( DATE Access Object) : 데이터가 저장된 DB에 접근하는 객체
+	//                     -> SQL 수행 , 결과 반환 받는 기능을 수행
+	
+	 private Statement stmt = null;
+	 private ResultSet rs = null;
+	 private PreparedStatement psmt = null;
+	 
+	 // xml 로 SQL 을 다룰것이다 -> Properties 객체 사용
+	 private Properties prop = null;
+	 
+	 
+	 
+	 public TestDao() {
+		 //TestDao 객체 생성시
+		 // test-query.xml 파일의 내용을 읽어와
+		 // properties 객체에 저장
+		 
+		 
+		 prop = new Properties();
+		 
+		 
+		 try {
+			 FileInputStream fis = new FileInputStream("test-query.xml");
+			 prop.loadFromXML(fis);
+			 
+			 
+			 
+		 }catch(Exception e) {
+			 e.printStackTrace();
+		 }
+		 
+		 
+		 
+	 }
+	 
+	 public void insert(Connection conn, TestVO vo1) {
+		 
+		 // 1. 결과 저장용 변수 선언 
+		 int result = 0;
+		 
+		 // 2.SQL 작성(test-query.xml에 작성된 SQL 얻어오기)
+		 
+		 String sql = prop.getProperty("insert");
+		 
+		 // 버스를 만들라면 connection 이 필요하기 떄문이다 
+		 psmt = conn.prepareStatement(sql);
+		 
+	 }
+	 
+	  
+	 
+}

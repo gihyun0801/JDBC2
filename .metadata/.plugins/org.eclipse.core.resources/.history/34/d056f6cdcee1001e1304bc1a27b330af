@@ -1,0 +1,19 @@
+package edu.kh.emp.common;
+
+import java.util.Properties;
+
+public class CreateXMLFile {
+          // driver.xml
+	      // query.xml
+	
+	      public static void main(String[] args) {
+			
+	    	  Properties proo = new Properties();
+	    	  
+	    	  
+	    	  
+	    	  
+		}
+	 
+	
+}

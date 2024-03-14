@@ -1,0 +1,12 @@
+package edu.kh.jdbc.run2;
+
+public class Run2 {
+   
+	 public static void main(String[] args) {
+		
+		 //TB_TEST 테이블에 한번에 3행 삽입
+		 
+	}
+	 
+	 
+}

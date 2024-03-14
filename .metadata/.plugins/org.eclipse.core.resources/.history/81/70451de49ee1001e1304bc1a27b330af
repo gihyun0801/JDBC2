@@ -1,0 +1,24 @@
+package edu.kh.jdbc.common;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+public class LoadXmlFile {
+   public static void main(String[] args) {
+	
+	   
+        try {
+        	
+        	Properties prop = new Properties();
+        	
+        	FileInputStream fis = new FileInputStream("driver.xml");
+        	
+        	prop.loadFromXML(fis);
+        	
+            System.out.println(prop);        	
+        	
+        }catch(Exception e) {
+        	e.printStackTrace();
+        }
+}
+}

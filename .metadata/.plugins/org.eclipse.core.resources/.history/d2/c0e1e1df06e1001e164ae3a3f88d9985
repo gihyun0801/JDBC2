@@ -1,0 +1,51 @@
+package edu.kh.gihyun;
+
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+
+public class Gihyun {
+   public static void main(String[] args) {
+	
+	   
+	   Connection conn = null;
+	   
+	   Statement stmt = null;
+	   
+	   ResultSet rs = null;
+	   
+	   try {
+		   
+		   
+		   		Class.forName("oracle.jdbc.driver.OracleDriver");
+		   		
+		   		String local = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		   		String id = "kh_sgh";
+		   		String pw = "kh1234";
+		   		
+		   		conn = DriverManager.getConnection();
+		   
+		   
+		   
+		   
+	   }catch(Exception e) {
+		   e.printStackTrace();
+	   }finally {
+		   
+		   try {
+			   
+			   
+			   if(rs != null)rs.close();
+			   if(stmt != null)stmt.close();
+			   if(rs != null)rs.close();
+			   
+		   }catch(Exception e) {
+			   e.printStackTrace();
+		   }
+		   
+	   }
+	   
+	   
+}
+}

@@ -1,0 +1,33 @@
+package edu.kh.jdbc.common;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.util.Properties;
+
+public class LoadXmlFile {
+   public static void main(String[] args) {
+	
+	   
+        try {
+        	
+        	Properties prop = new Properties();
+        	
+        	FileInputStream fis = new FileInputStream("driver.xml");
+        	
+        	prop.loadFromXML(fis);
+        	
+            
+            String driver = prop.getProperty("driver");
+            String url =prop.getProperty("url");
+           String user = prop.getProperty("user");
+            String password = prop.getProperty("password");
+            
+           
+            
+            
+        	
+        }catch(Exception e) {
+        	e.printStackTrace();
+        }
+}
+}

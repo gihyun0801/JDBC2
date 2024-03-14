@@ -1,0 +1,15 @@
+package edu.kh.emp.common;
+
+public class CreateXMLFile {
+          // driver.xml
+	      // query.xml
+	
+	      public static void main(String[] args) {
+			
+	    	  
+	    	  
+	    	  
+		}
+	 
+	
+}

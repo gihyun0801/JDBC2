@@ -1,0 +1,5 @@
+package edu.kh.gihyun.model.vo;
+
+public class Employee {
+
+}

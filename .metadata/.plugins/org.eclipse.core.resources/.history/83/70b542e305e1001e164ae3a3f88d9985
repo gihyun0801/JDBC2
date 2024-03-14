@@ -1,0 +1,21 @@
+package edu.kh.gihyun;
+
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+public class Gihyun {
+   public static void main(String[] args) {
+	
+	   
+	   Connection conn = null;
+	   
+	   Statement stmt = null;
+	   
+	   ResultSet rs = null;
+	   
+	   
+	   
+	   
+}
+}
