@@ -392,9 +392,9 @@ public class EmployeeDAO {
 		return list;
 	}
 
-	public Map<String, Integer> selectJobAvgSalary(Connection conn) {
+	public Map<String, Double> selectJobAvgSalary(Connection conn) {
 		
-		Map<String, Integer> list = new HashMap<String, Integer>();
+		Map<String, Double> list = new HashMap<String, Double>();
 		
 		try {
 			String sql = prop.getProperty("selectJobAvgSalary");
@@ -406,7 +406,7 @@ public class EmployeeDAO {
 			while(rs.next()) {
 				
 				String str1 = rs.getString("JOB_NAME");
-				int num1 = rs.getInt("급여평균");
+				double num1 = rs.getDouble("급여평균");
 				
 				list.put(str1, num1);
 				

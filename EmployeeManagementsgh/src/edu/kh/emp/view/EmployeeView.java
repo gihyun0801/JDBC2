@@ -100,11 +100,11 @@ System.out.println("\n============직급별 급여 평균 조회================
 		
 		
 		
-Map<String, Integer> list = service.selectJobAvgSalary();
+Map<String, Double> list = service.selectJobAvgSalary();
 		
-		Set<Map.Entry<String, Integer>> yaya = list.entrySet();
+		Set<Map.Entry<String, Double>> yaya = list.entrySet();
 		
-		for(Map.Entry<String, Integer> DS : yaya) {
+		for(Map.Entry<String, Double> DS : yaya) {
 			
 			System.out.printf("%s || %s\n", DS.getKey(), DS.getValue());
 			

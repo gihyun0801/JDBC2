@@ -161,11 +161,11 @@ public List<Employee> selectEmpNo(String no) {
 	return list;
 }
 
-public Map<String, Integer> selectJobAvgSalary() {
+public Map<String, Double> selectJobAvgSalary() {
 	
 Connection conn = JDBCTemplate.getConnection();
 	
-Map<String, Integer> list = dao.selectJobAvgSalary(conn);
+Map<String, Double> list = dao.selectJobAvgSalary(conn);
 	
 	
 	return list;
