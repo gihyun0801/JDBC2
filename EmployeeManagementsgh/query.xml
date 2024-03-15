@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>query.xml file!!</comment>
+
+
+<entry key="all">SELECT EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE, NVL(DEPT_TITLE, '부서없음') DEPT_TITLE, JOB_NAME, SALARY 
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT ON(DEPT_ID = DEPT_CODE)
+JOIN JOB USING(JOB_CODE)
+ORDER BY EMP_ID</entry>
+
+<entry key="insert">
+
+INSERT INTO EMPLOYEE VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, NULL, DEFAULT)
+
+</entry>
+
+<entry key="view">
+SELECT EMP_ID, EMP_NAME, EMP_NO, EMAIL, PHONE, DEPT_TITLE, JOB_NAME, SALARY
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT ON(DEPT_ID = DEPT_CODE)
+JOIN JOB USING(JOB_CODE)
+WHERE EMP_ID = ?
+
+</entry>
+
+<entry key="update">
+UPDATE EMPLOYEE
+SET EMP_NAME = ? , EMP_NO = ? , EMAIL = ? , PHONE = ?, DEPT_CODE = ? , JOB_CODE = ? , SAL_LEVEL = ? , SALARY = ? , BONUS = ? , MANAGER_ID = ?
+WHERE EMP_ID = ?
+
+</entry>
+
+<entry key="delete">
+
+DELETE FROM EMPLOYEE
+WHERE EMP_ID = ?
+
+</entry>
+
+<entry key="selectDeptEmp">
+
+SELECT * FROM EMPLOYEE
+LEFT JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)
+WHERE DEPT_TITLE = ?
+
+</entry>
+
+
+<entry key="selectSalaryEmp">
+
+SELECT * FROM EMPLOYEE
+WHERE SALARY IN ( SELECT SALARY FROM EMPLOYEE WHERE SALARY > ?  )
+
+
+</entry>
+
+
+<entry key="selectDeptTotalSalary">
+
+SELECT DEPT_CODE, SUM(SALARY) AS 급여합
+FROM EMPLOYEE
+GROUP BY DEPT_CODE
+ORDER BY 1
+
+</entry>
+
+<entry key="selectEmpNo">
+
+SELECT * FROM EMPLOYEE
+WHERE EMP_NO = ?
+
+</entry>
+
+<entry key="selectJobAvgSalary">
+
+SELECT JOB_NAME, ROUND(AVG(SALARY)) AS 급여평균
+FROM EMPLOYEE
+JOIN JOB USING(JOB_CODE)
+GROUP BY JOB_NAME
+
+
+
+</entry>
+
+
+
+</properties>

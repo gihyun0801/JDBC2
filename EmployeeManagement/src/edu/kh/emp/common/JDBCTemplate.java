@@ -11,7 +11,7 @@ public class JDBCTemplate {
  
 	 private static Connection conn = null;
 	
-	 public static Connection getConnection(Connection conn) {
+	 public static Connection getConnection() {
 		 
 		 try {
 			 
