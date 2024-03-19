@@ -147,5 +147,64 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+
+
+	public int updatePassword(String newPw1, String current, int memberNo,Connection conn) throws Exception{
+										//새로운비번 //현재비번    //로그인한계정 비번
+		
+		 int result = 0;
+		try {
+			
+			
+				String sql = prop.getProperty("updatePassword");
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, newPw1);
+				pstmt.setString(2, current);
+				pstmt.setInt(3, memberNo);
+				
+				result = pstmt.executeUpdate();
+				
+			
+			
+				
+			
+			
+		
+			
+		}finally {
+			
+			JDBCTemplate.close(pstmt);
+			
+		}
+		
+		
+		return result;
+	}
+
+
+
+	public int unRegisterMember(Connection conn, String memberPw, int memberNo) {
+		int result = 0;
+		try {
+			
+			String sql = prop.getProperty("unRegisterMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, memberPw);
+			
+			result = pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
 	
 }
