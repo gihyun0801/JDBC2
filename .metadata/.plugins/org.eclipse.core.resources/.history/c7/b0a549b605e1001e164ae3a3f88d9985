@@ -1,9 +1,0 @@
-package edu.kh.gihyun.model.vo;
-
-public class Employee {
-   private String empName;
-   private String date;
-   private char gender;
-   
-   
-}
