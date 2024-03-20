@@ -33,4 +33,24 @@ SET READ_COUNT = READ_COUNT + 1
 WHERE BOARD_NO = ?
 
 </entry>
+
+<entry key="updateBoard">
+
+UPDATE "BOARD"
+SET BOARD_CONTENT = ? , BOARD_TITLE = ?
+WHERE BOARD_NO = ?
+
+</entry>
+
+
+<entry key="nextBoardNo">
+
+SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+
+</entry>
+
+<entry key="insertBoard">
+
+INSERT INTO BOARD VALUES(?, ?, ?, DEFAULT, DEFAULT,DEFALUT, ?)
+</entry>
 </properties>

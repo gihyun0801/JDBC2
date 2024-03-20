@@ -4,12 +4,16 @@ import java.sql.Connection;
 import java.util.List;
 
 import edu.kh.jdbc.board.model.dao.BoardDAO.BoardDAO;
+import edu.kh.jdbc.board.model.dao.CommentDAO.CommentDAO;
 import edu.kh.jdbc.board.model.dto.Board.Board;
+import edu.kh.jdbc.board.model.dto.Comment.Comment;
 import edu.kh.jdbc.common.JDBCTemplate;
 import edu.kh.jdbc.common.Session;
 
 public class BoardService {
-    private BoardDAO dao = new BoardDAO();
+    private static BoardDAO dao = new BoardDAO();
+    
+    private CommentDAO commentDao = new CommentDAO();
 
 	public List<Board> selectAllBoard() throws Exception{
 		
@@ -41,6 +45,20 @@ public class BoardService {
 		//3. 게시글이 존재되서 조회된 경우
 		
 		if(board != null) {
+			
+			
+			//**************************************************
+			// ** 해당 게시글에 대한 댓글 목록 조회 DAO 호출 **
+			List<Comment> commentList = commentDao.selectCommentList(conn,input);
+			
+			if(commentList.size() == 0) System.out.println("\n**조회결과가 없습니다**\n");
+			
+            //board에 댓글 목록 세팅
+			
+			board.setCommentList(commentList);			
+			//**************************************************
+			
+			
 			//4. 조회수 증가
 		    //단, 게시글 작성자와 로그인한 회원이 같으면 조회수 증가 안해줄거다 == 다를경우에만 증가
 			if(board.getMemberNo() != memberNO) {
@@ -72,6 +90,39 @@ public class BoardService {
 		
 		// 8. 결과 반환
 		return board;
+	}
+
+	public static int updateBoard(String boardTitle, String boardcontent, int boardNo) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+		
+		int result = dao.updateBoard(boardTitle,boardcontent,boardNo, conn);
+		
+		if(result > 0) JDBCTemplate.commit(conn);
+		else JDBCTemplate.rollback(conn);
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int insertBoard(String boardTitle, StringBuffer boardContent, int no) {
+		
+		Connection conn = JDBCTemplate.getConnection();
+//		int result = dao.insertBoard(conn, boardTitle, boardContent,no);
+		
+		//다음 게시글 번호 생성 dao 호출
+		int boardNo = dao.nextBoardNo(conn);
+		
+		// 제목 내용 회원번호 + 다음 게시글번호
+		int result = dao.insertBoard(conn,boardContent,boardTitle,boardNo,no);
+  
+		 if(result > 0) {
+			 JDBCTemplate.commit(conn);
+			 result = boardNo;
+		 }else {
+			 JDBCTemplate.rollback(conn);
+		 }
+				JDBCTemplate.close(conn);
+		return result;
 	}
     
     

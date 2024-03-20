@@ -155,6 +155,78 @@ public class BoardDAO {
 		
 		return result;
 	}
+
+	public int updateBoard(String boardTitle, String boardcontent, int boardNo, Connection conn) {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("updateBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, boardcontent);
+			pstmt.setString(2, boardTitle);
+			pstmt.setInt(3, boardNo);
+			
+		result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCTemplate.close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 다음 게시글 번호 조회 룰 SQL DA실행
+	 * @param conn
+	 * @return
+	 */
+	public int nextBoardNo(Connection conn) {
+		int boardNo = 0;
+		
+		try{
+			String sql = prop.getProperty("nextBoardNo");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				boardNo = rs.getInt(1);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(pstmt);
+		}
+		
+		
+		return boardNo;
+	}
+
+	public int insertBoard(Connection conn, StringBuffer boardContent, String boardTitle, int boardNo, int no) {
+		int result = 0;
+		try {
+			  String sql = prop.getProperty("insertBoard");
+			  
+			  pstmt = conn.prepareStatement(sql);
+			  
+			  pstmt.setInt(1, boardNo);
+			  pstmt.setString(2, boardTitle);
+			  pstmt.setString(3, boardContent.toString());
+			  pstmt.setInt(4, no);
+			  
+			  result = pstmt.executeUpdate();
+			  
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
      
      
      
